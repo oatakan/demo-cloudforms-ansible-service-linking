@@ -1,0 +1,10 @@
+- hosts: localhost
+  become: no
+  vars_files:
+    - nodes-ec2.yml
+  vars:
+    provider_id: 99000000000004
+  roles:
+    - ansible-role-ec2
+    - cloudforms-refresh-provider
+    - cloudforms-link-service

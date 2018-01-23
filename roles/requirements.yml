@@ -1,0 +1,4 @@
+- src: https://github.com/oatakan/ansible-role-ec2.git
+  version: origin/master
+
+- src: syncrou.manageiq-vmdb
