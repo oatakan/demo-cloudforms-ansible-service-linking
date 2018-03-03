@@ -37,6 +37,9 @@
         var: env_output
 
     - debug:
+        var: hostvars[inventory_hostname]
+
+    - debug:
         var: manageiq_connection
 
     - name: get a vmdb object
