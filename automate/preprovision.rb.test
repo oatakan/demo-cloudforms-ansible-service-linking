@@ -44,16 +44,17 @@ module ManageIQ
 
                   # You can also override job options through service
                   def modify_job_options(service)
-                    # Example how to programmatically modify job options:
-                    job_options = service.job_options
-                    manageiq = {
-                      'api_url'   => 'https://' + $evm.root['miq_server'].ipaddress + '/api',
-                      'service'   => service.href_slug,
-                      'user'      => $evm.root['user'].href_slug,
-                      'group'     => $evm.root['miq_group'].href_slug
+                      miq_extra_vars = {
+                      'X_MIQ_Group' => @handle.root['miq_group'].desription,
+                      'api_url' => "https://#{$evm.root[‘miq_server’].ipaddress}",
+                      'service' => service.href_slug,
+                      ‘user’      => @handle.root['user'].href_slug,
+                      ‘group’     => @handle.root['miq_group'].href_slug
                     }
-                    job_options[:extra_vars]['manageiq'] = manageiq
-					service.job_options = job_options
+
+                    job_options = service.job_options
+                    job_options[:extra_vars]['manageiq'] = miq_extra_vars
+                    service.job_options = job_options
                     @handle.log("info", "job options = #{service.job_options.inspect}")
                   end
                 end
