@@ -30,6 +30,9 @@
           client_cert: ''
           client_key: ''
 
+    - debug:
+        var:
+
     - name: get a vmdb object
       manageiq_vmdb:
         href: "{{ manageiq.service }}"

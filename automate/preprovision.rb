@@ -47,7 +47,7 @@ module ManageIQ
                     # Example how to programmatically modify job options:
                     job_options = service.job_options
                     manageiq = {
-                      'api_url'   => 'https://' + $evm.root['miq_server'].ipaddress + '/api',
+                      'api_url'   => 'https://' + $evm.root['miq_server'].ipaddress + '/',
                       'service'   => service.href_slug,
                       'user'      => $evm.root['user'].href_slug,
                       'group'     => $evm.root['miq_group'].href_slug
