@@ -1,7 +1,7 @@
 - hosts: localhost
   become: no
   vars_files:
-    - nginx-nodes-ec2.yml
+    - nodes-ec2.yml
   vars:
     provider_id: 99000000000004
   roles:
