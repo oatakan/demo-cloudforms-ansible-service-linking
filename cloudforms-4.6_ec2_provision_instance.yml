@@ -23,24 +23,12 @@
           token: ''
           manageiq_validate_certs: false
           force_basic_auth: false
-          username: '{{ manageiq.api_username }}'
-          password: '{{ manageiq.api_password }}'
+          username: '{{ manageiq_user }}'
+          password: '{{ manageiq_password }}'
           group: '{{ manageiq.group }}'
           X_MIQ_Group: ''
           client_cert: ''
           client_key: ''
-
-    - shell: env
-      register: env_output
-
-    - debug:
-        var: env_output
-
-    - debug:
-        var: hostvars[inventory_hostname]
-
-    - debug:
-        var: manageiq_connection
 
     - name: get a vmdb object
       manageiq_vmdb:
